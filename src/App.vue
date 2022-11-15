@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<NavBar v-if="this.$route.path != '/sign-in' && this.$route.path != '/sign-up' && this.$route.path != '/'" />
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import NavBar from './components/NavBar.vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    NavBar
+  },
+  mounted(){
+    // console.log(this.$route,'allRoutes');
   }
 }
 </script>
@@ -21,6 +23,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>
